@@ -1,0 +1,32 @@
+{
+    "manifest_version": 2,
+    "name": "button-demo",
+    "description": "GUI 앱 waver",
+    "version": "1.0",
+    "permissions": ["downloads", "storage", "notifications", "<all_urls>" , "contextMenus", "tabs"],
+    "browser_action": {
+      //"default_popup": "sidebar.html",
+      "default_icon": {
+          "16": "icons/waver.png",
+          "32": "icons/waver.png"
+      }
+    },
+    "background": {
+        "scripts": ["background.js", "jquery-3.4.1.min.js"]
+    },
+    "commands": {
+      "browser_action": {
+          "suggested_key": {
+              "default": "Ctrl+B"
+          },
+          "description": "기능 On/Off 단축키"
+      }
+  },
+       "content_scripts":[
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["contentScript.js"],
+      "css" : ["back.css"]
+    }
+  ]
+  }
